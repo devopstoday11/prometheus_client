@@ -39,7 +39,7 @@ class Sample {
   final double value;
 
   /// The timestamp of the moment the sample was taken.
-  final int timestamp;
+  final int? timestamp;
 
   /// Constructs a new sample with [name], [labelNames], [labelValues] as well
   /// as the sampled [value] and an optional [timestamp].
@@ -138,8 +138,10 @@ class CollectorRegistry {
   void unregister(Collector collector) {
     final collectorNames = _collectorsToNames.remove(collector);
 
-    for (var name in collectorNames) {
-      _namesToCollectors.remove(name);
+    if (collectorNames != null) {
+      for (var name in collectorNames) {
+        _namesToCollectors.remove(name);
+      }
     }
   }
 

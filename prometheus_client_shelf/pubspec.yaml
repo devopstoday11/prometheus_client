@@ -11,7 +11,19 @@ dependencies:
   shelf: ^0.7.5
   collection: ^1.14.11
 
-dev_dependencies:
-  pedantic: ^1.8.0
-  test: ^1.6.0
-  shelf_router: ^0.7.1
+#dev_dependencies:
+#  pedantic: ^1.8.0
+#  test: ^1.6.0
+#  shelf_router: ^0.7.1
+
+dependency_overrides:
+  prometheus_client:
+    path: ../prometheus_client
+  collection:
+    git:
+      url: https://github.com/dart-lang/collection
+      ref: null_safety
+  shelf:
+    git:
+      url: https://github.com/dart-lang/shelf
+      ref: null_safety
